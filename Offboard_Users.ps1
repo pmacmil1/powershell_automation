@@ -1,4 +1,4 @@
-﻿<#
+<#
 ----- PREREQUISITES -----
 
 *You need RSAT to for the Active Directory administration module for Powershell
@@ -117,7 +117,9 @@ function generateUserAccountVariables
 
     #Check that the WhoInheritsTheMailAccountsCompany cell from the CSV file contains properly company names
     #i.e. COMPANY_NAME, COMPANY_NAME2, COMPANY_NAME3, COMPANY_NAME3, or COMPANY_NAME4
-    if(($mailRecipientCompany -ne $null) -and ($mailRecipientCompany -ne "") -and ($mailRecipientCompany -ne "COMPANY_NAME") -and ($mailRecipientCompany -ne "COMPANY_NAME")`        -and ($mailRecipientCompany -ne "COMPANY_NAME2") -and ($mailRecipientCompany -ne "COMPANY_NAME3") -and ($mailRecipientCompany -ne "COMPANY_NAME3") `        -and ($mailRecipientCompany -ne "COMPANY_NAME4"))
+    if(($mailRecipientCompany -ne $null) -and ($mailRecipientCompany -ne "") -and ($mailRecipientCompany -ne "COMPANY_NAME") -and ($mailRecipientCompany -ne "COMPANY_NAME")`
+        -and ($mailRecipientCompany -ne "COMPANY_NAME2") -and ($mailRecipientCompany -ne "COMPANY_NAME3") -and ($mailRecipientCompany -ne "COMPANY_NAME3") `
+        -and ($mailRecipientCompany -ne "COMPANY_NAME4"))
     {
         Write-Host "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" -ForegroundColor Red -BackgroundColor Black
         Write-Host "Error: The WhoInheritsTheMailAccountsCompany field in the CSV file has an     " -ForegroundColor Red -BackgroundColor Black
@@ -509,8 +511,8 @@ function deprovisionAzureADUser
                     if (($userAccountVariables[4] -ne "@DOMAIN.NAME") -and ($AzureADUserMailRecipient -ne $null) -and ($AzureADUserMailboxMailRecipient -ne $null))
                     {
                         Write-Host "Assigning admin access rights to"$userAccountVariables[4]"for the OneDrive account of former user"$user.FirstName $user.LastName -ForegroundColor Cyan
-                        Connect-SPOService -Url https://COMPANY_NAMEgruppe-admin.sharepoint.com -credential $AzureADCredential | Out-Null
-                        $OneDriveSite = "https://COMPANY_NAMEgruppe-my.sharepoint.com/personal/"+$userAccountVariables[1]+"_COMPANY_NAME_de/_layouts/15/onedrive.aspx"
+                        Connect-SPOService -Url https://COMPANY_NAME-admin.sharepoint.com -credential $AzureADCredential | Out-Null
+                        $OneDriveSite = "https://COMPANY_NAME-my.sharepoint.com/personal/"+$userAccountVariables[1]+"_COMPANY_NAME_de/_layouts/15/onedrive.aspx"
                         Set-SPOUser -Site $OneDriveSite -LoginName $userAccountVariables[4] -IsSiteCollectionAdmin $true | Out-Null
                         Disconnect-SPOService | Out-Null
                     }
@@ -769,7 +771,7 @@ Get-ChildItem $LogPath | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | R
 ### What to do with OneDrive? ###
 #################################
 #https://docs.microsoft.com/en-us/onedrive/retention-and-deletion?redirectSourcePath=%252farticle%252fef883c48-332c-42f5-8aea-f0e2366c15f9
-#Their manager should automatically get the content and I have set up the itsupport@COMPANY_NAME.ag to be the backup admin for when they don't have a manager.
+#Their manager should automatically get the content and I have set up the HELP_DESK@COMPANY_NAME.ag to be the backup admin for when they don't have a manager.
 
 #########################################################################
 ### Disconnect from open services and close running transcription log ###
