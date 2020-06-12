@@ -17,4 +17,4 @@ Because Azure AD and the SPO userstore are linked but ultimately separate, it ca
 
 You can read more about this [here](https://blog.atwork.at/post/SharePoint-Online-UserProfiles-and-the-story-about-synchronizing-with-Azure-Active-Directory).
 
-This script will directly update the user fields in SPO that are not available or synced from Azure AD for SPO, 
+This script will directly update the user fields in SPO that are not available or synced from Azure AD for SPO.  Here it is updated telephone numbers and SIP addresses for a SPO-hosted user directory.
