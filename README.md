@@ -9,4 +9,4 @@ The onboarding script will create local AD users and Azure AD users for synchron
 
 The Offboarding script will rollback the user creation process, devprovisioning the user from all licenses and groups, while providing manager access to their Exchange and Sharepoint Online accounts.
 
-## Sharepoint File Uploads
+## Sharepoint File Uploader
