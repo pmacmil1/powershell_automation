@@ -9,8 +9,8 @@ The onboarding script will create local AD users and Azure AD users for synchron
 
 The Offboarding script will rollback the user creation process, devprovisioning the user from all licenses and groups, while providing manager access to their Exchange and Sharepoint Online accounts.
 
-## Sharepoint File Uploader
-
+## Sharepoint Online (SPO) File Uploads
+This script will take a locally hosted folder and recursively upload the contents to the Sharepoint Online library of your choosing.  It will create the root and subfolders of the folder in question, and create them while uploading their file contents.  In this case it will only upload PDF file types but can be configured for any other file types.
 
 ## Sharepoint Online (SPO) User Info Updates
 Because Azure AD and the SPO userstore are linked but ultimately separate, it can be difficult to update some fields in SPO which are not synced with Azure AD.
